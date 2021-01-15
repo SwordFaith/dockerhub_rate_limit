@@ -1,0 +1,1 @@
+A docker image used to test docker hub limit rate

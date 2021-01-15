@@ -1,0 +1,3 @@
+FROM alpine:3.11.7
+
+COPY ./README.md /README.md
