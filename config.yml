@@ -1,0 +1,31 @@
+version: 0.1
+log:
+  fields:
+    service: registry
+storage:
+  cache:
+    blobdescriptor: inmemory
+  delete:
+    enabled: true
+  azure:
+    accountname: <account_name>
+    accountkey: <account_primary_key>
+    container: dockerregistry
+    # realm:  core.windows.net
+http:
+  addr: :5000
+  headers:
+    X-Content-Type-Options: [nosniff]
+auth:
+  htpasswd:
+    realm: basic-realm
+    path: /auth/htpasswd # /etc/registry
+proxy:
+  remoteurl: https://registry-1.docker.io
+  # username: <dockerhub_account>
+  # password: <dockerhub_account_token>
+health:
+  storagedriver:
+    enabled: true
+    interval: 10s
+    threshold: 3
